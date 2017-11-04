@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Refresher Test</title>
+</head>
+
+<body>
+	<div id="content"></div>
+	<script src="refresher.js"></script>
+	<script>
+		function refresh() {
+			var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var content = document.getElementById('content');
+					content.innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("GET", "content.txt", true);
+			xhttp.send();
+		}
+		refresh();
+		startWorker(refresh);
+	</script>
+</body
+</html>
